@@ -1,0 +1,32 @@
+@import url("skillnet.css");
+
+body{
+  background: var(--bg);
+}
+
+#resultPhoto{
+  width: 140px;
+  height: 140px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-2);
+  object-fit: cover;
+}
+
+.profile-output h1{
+  font-size: 26px;
+  text-align: center;
+  margin: 0 0 18px;
+}
+
+.profile-output p{
+  background: rgba(15,23,42,0.03);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px 14px;
+  color: var(--text);
+}
+
+.profile-output strong{
+  color: var(--muted);
+}

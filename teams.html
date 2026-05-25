@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillNet — Teams</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">COLLABORATE&lt;=&gt;INNOVATE</div>
+    <div class="nav-links">
+      <a href="index.html">HOME</a>
+      <a href="startup.html">STARTUP</a>
+      <a href="about.html">ABOUT</a>
+      <a href="profile.html">PROFILE</a>
+      <a href="suggestion.html">SUGGESTION</a>
+      <a href="aibox.html">AIBOX</a>
+      <a href="teams.html" class="active">TEAMS</a>
+      <a href="hackathons.html">HACKATHONS</a>
+    </div>
+    <button class="btn-nav" onclick="handleNavAuth()">Sign Up</button>
+  </nav>
+
+  <!-- TEAMS PAGE -->
+  <div class="teams-wrap">
+
+    <!-- Section 1: Find Teammates -->
+    <section>
+      <h2 class="section-title">Find Teammates</h2>
+      <p class="section-sub">Browse student profiles and discover people with the skills you need.</p>
+      <div class="teammates-grid" id="profilesGrid">
+        <!-- Cards rendered by teams.js -->
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- Section 2: Browse Teams -->
+    <section>
+      <div class="startup-browse-header">
+        <div>
+          <h2 class="section-title">Browse Teams</h2>
+          <p class="section-sub">Join a team that matches your skills, or create a new one.</p>
+        </div>
+        <span class="startup-count-badge" id="teamsCount">&nbsp;</span>
+      </div>
+
+      <div id="teamsContainer">
+        <p class="loading-text">Loading teams...</p>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- Section 2: Create a Team -->
+    <section>
+      <h2 class="section-title">Create a Team</h2>
+      <p class="section-sub">Start a new team and let others know what you're building.</p>
+
+      <div class="create-team-card">
+        <form id="createTeamForm">
+
+          <div class="form-group">
+            <label for="teamName">Team Name</label>
+            <input
+              type="text"
+              id="teamName"
+              placeholder="e.g. AlphaBuilders"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="teamDesc">Description</label>
+            <textarea
+              id="teamDesc"
+              rows="3"
+              placeholder="What are you building? What's the goal?"
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="teamSkills">Skills Needed</label>
+            <input
+              type="text"
+              id="teamSkills"
+              placeholder="e.g. React, ML, UI/UX Design (comma-separated)"
+            />
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary"
+            style="padding:12px 28px;font-size:0.97rem;"
+          >
+            Create Team
+          </button>
+
+        </form>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+  <script src="js/firebase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/teams.js"></script>
+</body>
+</html>

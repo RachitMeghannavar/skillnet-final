@@ -1,0 +1,11 @@
+@import url("skillnet.css");
+
+body{
+  min-height: 100vh;
+}
+
+.container{
+  width: min(980px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 28px 0 56px;
+}

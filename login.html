@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillNet — Log In</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">COLLABORATE&lt;=&gt;INNOVATE</div>
+    <div class="nav-links">
+      <a href="index.html">HOME</a>
+      <a href="startup.html">STARTUP</a>
+      <a href="about.html">ABOUT</a>
+      <a href="profile.html">PROFILE</a>
+      <a href="suggestion.html">SUGGESTION</a>
+      <a href="aibox.html">AIBOX</a>
+      <a href="teams.html">TEAMS</a>
+      <a href="hackathons.html">HACKATHONS</a>
+    </div>
+    <button class="btn-nav" onclick="handleNavAuth()">Sign Up</button>
+  </nav>
+
+  <!-- AUTH CARD -->
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <h2>Log In</h2>
+      <p class="auth-subtitle">Welcome back</p>
+
+      <form id="loginForm" novalidate>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="loginEmail">Email</label>
+          <div class="input-icon-wrap">
+            <span class="input-icon">@</span>
+            <input
+              type="email"
+              id="loginEmail"
+              placeholder="Enter your email"
+              autocomplete="email"
+            />
+          </div>
+          <div class="form-error" id="emailError">Please enter your email.</div>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <div class="input-icon-wrap">
+            <span class="input-icon">&#128274;</span>
+            <input
+              type="password"
+              id="loginPassword"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+            />
+          </div>
+          <div class="form-error" id="passwordError">Please enter your password.</div>
+        </div>
+
+        <!-- General / credentials error -->
+        <div class="form-error" id="generalError" style="margin-bottom:12px;font-size:0.9rem;">
+          Incorrect email or password. Please try again.
+        </div>
+
+        <button type="submit" class="btn btn-dark btn-block" style="font-size:1rem;padding:13px;">
+          LOG IN
+        </button>
+      </form>
+
+      <div class="auth-footer">
+        Don't have an account? <a href="signup.html">Sign Up</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+  <script src="js/firebase.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      var email    = document.getElementById("loginEmail").value.trim();
+      var password = document.getElementById("loginPassword").value;
+
+      document.querySelectorAll(".form-error").forEach(function (el) {
+        el.classList.remove("visible");
+      });
+
+      var valid = true;
+      if (!email)    { document.getElementById("emailError").classList.add("visible");    valid = false; }
+      if (!password) { document.getElementById("passwordError").classList.add("visible"); valid = false; }
+      if (!valid) return;
+
+      var btn = e.target.querySelector("button[type=submit]");
+      btn.disabled = true;
+      btn.textContent = "Logging in...";
+
+      auth.signInWithEmailAndPassword(email, password)
+        .then(function () {
+          window.location.href = "profile.html";
+        })
+        .catch(function (err) {
+          var genErr = document.getElementById("generalError");
+          genErr.textContent = getFirebaseError(err.code);
+          genErr.classList.add("visible");
+          btn.disabled = false;
+          btn.textContent = "LOG IN";
+        });
+    });
+  </script>
+</body>
+</html>

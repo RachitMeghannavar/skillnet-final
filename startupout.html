@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKILL NET - Your Startup Concept</title>
+    <link rel="stylesheet" href="startup.css">
+</head>
+<body>
+      <nav class="navbar">
+    <div class="logo">COLLABORATE&lt;=&gt;INNOVATE</div>
+    <div class="nav-links" id="navLinks">
+      <a href="startup.html">STARTUP</a>
+      <a href="home.html">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="create_profile.html">PROFILE</a>
+      <a href="suggestion.html">SUGGESTION</a>
+      <a href="AiChatBox.html">AIBOX</a>
+    </div>
+  <button OnClick="openSignin()"  class="SignUp">SignUp</button>
+  </nav>
+
+    <div class="container">
+        <div class="startup-card">
+            <div class="brand">SKILL NET</div>
+            
+            <div class="dynamic-type">Startup Concept Pitch</div>
+            <h1 class="dynamic-headline" id="outputName">Loading Name...</h1>
+            
+            <p class="description" id="outputBrief">Loading description...</p>
+        </div>
+        
+        <div class="btn-container">
+            <button type="button" class="submit-btn" onclick="createNewStartup()">
+                + Create Another
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Run this script as soon as the page opens to load the user data
+        window.onload = function() {
+            let savedName = localStorage.getItem('storedName');
+            let savedBrief = localStorage.getItem('storedBrief');
+
+            // Insert data into elements or show backup message if empty
+            document.getElementById('outputName').innerText = savedName ? savedName : "Untitled Concept";
+            document.getElementById('outputBrief').innerText = savedBrief ? savedBrief : "No brief description was submitted.";
+        }
+
+        // Function linked to the "Create Another" button
+        function createNewStartup() {
+            // Optional: Clear out old data so the new form starts fresh
+            localStorage.removeItem('storedName');
+            localStorage.removeItem('storedBrief');
+            
+            // Redirect back to the main input form page
+            window.location.href = 'index.html'; 
+        }
+    </script>
+    <script src="skillnet.js"></script>
+</body>
+</html>

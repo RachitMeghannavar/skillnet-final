@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Student Collaboration Chatbox</title>
+    <link rel="stylesheet" href="skillnet.css">
+</head>
+<body>
+      <nav class="navbar">
+    <div class="logo">COLLABORATE&lt;=&gt;INNOVATE</div>
+    <div class="nav-links" id="navLinks">
+      <a href="startup.html">STARTUP</a>
+      <a href="home.html">HOME</a>
+      <a href="about.html">ABOUT</a>
+      <a href="create_profile.html">PROFILE</a>
+      <a href="suggestion.html">SUGGESTION</a>
+      <a href="AiChatBox.html">AIBOX</a>
+    </div>
+  <button OnClick="openSignin()"  class="SignUp">SignUp</button>
+  </nav>
+
+    <main class="page">
+        <div class="chat-container">
+            <h2>AI Student Chatbox</h2>
+
+            <div id="chatbox" placeholder="..."></div>
+
+            <input type="text" id="userInput" placeholder="Ask about hackathons, certifications...">
+            <button onclick="reply()">Send</button>
+        </div>
+    </main>
+
+<script>
+function reply() {
+
+    let input = document.getElementById("userInput").value.toLowerCase();
+    let chatbox = document.getElementById("chatbox");
+
+    chatbox.innerHTML += "<p class='user'><b>You:</b> " + input + "</p>";
+
+    let response = "";
+
+    if(input.includes("hi")) {
+        response = "Hello!,i an ai assistent i would give you information about this website."
+        }
+
+      else if(input.includes("hackathon")) {
+        response = "Hackathons are coding competitions where students build projects and innovate.";
+    }
+    else if(input.includes("certification")) {
+        response = "You can find certification courses on linkdin learning, great learning ,...visit certification courses in sugesstion section ";
+    }
+
+    else if(input.includes("course")) {
+        response = "Popular courses include AI, Web Development, Python, Data Science, and Cyber Security.";
+    }
+
+    else if(input.includes("startup")) {
+        response = "is a feature in this website where students add on startup ideas and innovation projects.";
+    }
+    else if(input.includes("suggestions")) {
+        response = "This web will help you to grow with technical skills and opportunities,vist about suggestion section";
+    }
+
+  
+    else if(input.includes("technical")) {
+        response = "you can find websites where technical opportunities are offered. ";
+    }
+    
+    else {
+        response = "Sorry, I can answer only web-related questions.";
+    }
+
+    chatbox.innerHTML += "<p class='bot'><b>Bot:</b> " + response + "</p>";
+
+    document.getElementById("userInput").value = "";
+}
+</script>
+
+<script src="skillnet.js"></script>
+</body>
+</html>

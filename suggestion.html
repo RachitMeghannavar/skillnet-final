@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillNet — Suggestions</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">COLLABORATE&lt;=&gt;INNOVATE</div>
+    <div class="nav-links">
+      <a href="index.html">HOME</a>
+      <a href="startup.html">STARTUP</a>
+      <a href="about.html">ABOUT</a>
+      <a href="profile.html">PROFILE</a>
+      <a href="suggestion.html" class="active">SUGGESTION</a>
+      <a href="aibox.html">AIBOX</a>
+      <a href="teams.html">TEAMS</a>
+      <a href="hackathons.html">HACKATHONS</a>
+    </div>
+    <button class="btn-nav" onclick="handleNavAuth()">Sign Up</button>
+  </nav>
+
+  <!-- SUGGESTIONS CONTENT -->
+  <div class="suggestion-wrap">
+    <div class="card card-pad">
+      <h2>Suggestions</h2>
+
+      <!-- Technical Events -->
+      <div class="suggestion-section">
+        <span class="tag-pill">technical_events</span>
+        <p>
+          Technical events play an important role in improving students' knowledge,
+          creativity, and practical skills. They provide opportunities for students
+          to learn new technologies, develop problem-solving abilities, and gain
+          real-world experience beyond classroom learning. Events such as hackathons,
+          coding competitions, workshops, and project exhibitions help students build
+          confidence, teamwork, communication, and leadership skills. Technical events
+          also encourage innovation by motivating students to create unique solutions
+          for real-life problems. In addition, they help students connect with industry
+          experts, mentors, and other talented participants, which can improve career
+          opportunities and professional growth. Overall, technical events make learning
+          more interactive, engaging, and useful for future success in the technology field.
+        </p>
+      </div>
+
+      <hr class="divider" />
+
+      <!-- Certification Courses -->
+      <div class="suggestion-section">
+        <span class="tag-pill">certification_courses</span>
+        <p>
+          Certification courses are specialized training programs that help students and
+          professionals improve their skills and knowledge in a particular field. These
+          courses provide practical learning and industry-recognized certificates that
+          enhance resumes and career opportunities. Certification courses are available
+          in areas such as web development, artificial intelligence, cybersecurity, data
+          science, digital marketing, and programming. They help learners gain hands-on
+          experience, stay updated with modern technologies, and improve their confidence
+          in technical skills. Many certification courses are offered online and allow
+          students to learn at their own pace. Overall, certification courses play an
+          important role in career growth by increasing knowledge, improving employability,
+          and preparing individuals for real-world professional challenges.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+  <script src="js/firebase.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

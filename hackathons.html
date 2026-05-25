@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillNet — Hackathons</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">COLLABORATE&lt;=&gt;INNOVATE</div>
+    <div class="nav-links">
+      <a href="index.html">HOME</a>
+      <a href="startup.html">STARTUP</a>
+      <a href="about.html">ABOUT</a>
+      <a href="profile.html">PROFILE</a>
+      <a href="suggestion.html">SUGGESTION</a>
+      <a href="aibox.html">AIBOX</a>
+      <a href="teams.html">TEAMS</a>
+      <a href="hackathons.html" class="active">HACKATHONS</a>
+    </div>
+    <button class="btn-nav" onclick="handleNavAuth()">Sign Up</button>
+  </nav>
+
+  <!-- HACKATHONS PAGE -->
+  <div class="hackathons-wrap">
+
+    <div>
+      <h2 class="section-title">Upcoming Hackathons</h2>
+      <p class="section-sub">Find the right challenge, form your team, and compete to win.</p>
+    </div>
+
+    <div class="hackathons-grid">
+
+      <!-- Smart India Hackathon -->
+      <div class="hackathon-card">
+        <span class="hackathon-badge">National</span>
+        <div class="hackathon-name">Smart India Hackathon</div>
+        <div class="hackathon-meta">
+          <span>&#128197; August 2026</span>
+          <span>&#128205; India-wide (online + offline)</span>
+        </div>
+        <div class="hackathon-prize">&#127942; &#8377;1,00,000</div>
+        <button
+          class="btn btn-primary"
+          onclick="registerHackathon('Smart India Hackathon')"
+        >
+          Register
+        </button>
+      </div>
+
+      <!-- Microsoft Imagine Cup -->
+      <div class="hackathon-card">
+        <span class="hackathon-badge">International</span>
+        <div class="hackathon-name">Microsoft Imagine Cup</div>
+        <div class="hackathon-meta">
+          <span>&#128197; September 2026</span>
+          <span>&#128205; Global (online)</span>
+        </div>
+        <div class="hackathon-prize">&#127942; $50,000</div>
+        <button
+          class="btn btn-primary"
+          onclick="registerHackathon('Microsoft Imagine Cup')"
+        >
+          Register
+        </button>
+      </div>
+
+      <!-- Google Solution Challenge -->
+      <div class="hackathon-card">
+        <span class="hackathon-badge">International</span>
+        <div class="hackathon-name">Google Solution Challenge</div>
+        <div class="hackathon-meta">
+          <span>&#128197; July 2026</span>
+          <span>&#128205; Global (online)</span>
+        </div>
+        <div class="hackathon-prize">&#127942; $3,000</div>
+        <button
+          class="btn btn-primary"
+          onclick="registerHackathon('Google Solution Challenge')"
+        >
+          Register
+        </button>
+      </div>
+
+      <!-- HackIndia 2026 -->
+      <div class="hackathon-card">
+        <span class="hackathon-badge">National</span>
+        <div class="hackathon-name">HackIndia 2026</div>
+        <div class="hackathon-meta">
+          <span>&#128197; October 2026</span>
+          <span>&#128205; Multiple cities, India</span>
+        </div>
+        <div class="hackathon-prize">&#127942; &#8377;5,00,000</div>
+        <button
+          class="btn btn-primary"
+          onclick="registerHackathon('HackIndia 2026')"
+        >
+          Register
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
+  <script src="js/firebase.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    function registerHackathon(name) {
+      if (!auth.currentUser) {
+        showToast("Please log in to register.", "info");
+        setTimeout(function () { window.location.href = "login.html"; }, 1500);
+        return;
+      }
+      showToast("Registered for " + name + "!", "success");
+    }
+  </script>
+</body>
+</html>
